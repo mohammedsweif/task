@@ -1,0 +1,12 @@
+C:\Users\C.M\source\repos\tasks\inferastructure\obj\Debug\netcoreapp3.1\inferastructure.csprojAssemblyReference.cache
+C:\Users\C.M\source\repos\tasks\inferastructure\obj\Debug\netcoreapp3.1\inferastructure.AssemblyInfoInputs.cache
+C:\Users\C.M\source\repos\tasks\inferastructure\obj\Debug\netcoreapp3.1\inferastructure.AssemblyInfo.cs
+C:\Users\C.M\source\repos\tasks\inferastructure\obj\Debug\netcoreapp3.1\inferastructure.csproj.CoreCompileInputs.cache
+C:\Users\C.M\source\repos\tasks\inferastructure\bin\Debug\netcoreapp3.1\inferastructure.deps.json
+C:\Users\C.M\source\repos\tasks\inferastructure\bin\Debug\netcoreapp3.1\inferastructure.dll
+C:\Users\C.M\source\repos\tasks\inferastructure\bin\Debug\netcoreapp3.1\inferastructure.pdb
+C:\Users\C.M\source\repos\tasks\inferastructure\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\C.M\source\repos\tasks\inferastructure\bin\Debug\netcoreapp3.1\Data.pdb
+C:\Users\C.M\source\repos\tasks\inferastructure\obj\Debug\netcoreapp3.1\inferastructure.csproj.CopyComplete
+C:\Users\C.M\source\repos\tasks\inferastructure\obj\Debug\netcoreapp3.1\inferastructure.dll
+C:\Users\C.M\source\repos\tasks\inferastructure\obj\Debug\netcoreapp3.1\inferastructure.pdb

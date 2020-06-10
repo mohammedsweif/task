@@ -1,0 +1,90 @@
+<hr>
+<div class="row">
+  <div class="col-6">
+    <h2 class="title" style="color: brown;">Products Invoices </h2>
+  </div>
+  <div class="col-6">
+    <button  type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal11" data-whatever="@mdo">
+      New Invoice
+    </button>
+    <!-- //model add -->
+<div class="modal fade" id="exampleModal11" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true" data-backdrop="false">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel1">New Invoice</h5>
+<button type="button"  class="close" data-dismiss="modal"  (click)="getallproducts()" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+
+<form>
+
+<div class="form-group">
+  <label for="message-text" class="col-form-label"> Enter Product :</label>
+  <div class="ng-autocomplete changeWidth">
+    <ng-autocomplete 
+      [data]="data"
+      [searchKeyword]="keyword"
+      (selected)='selectEvent($event)'
+      (inputChanged)='onChangeSearch($event)'
+      (inputFocused)='onFocused($event)'
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate">                                 
+    </ng-autocomplete>
+     
+    <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.proName"></a>
+    </ng-template>
+     
+    <ng-template #notFoundTemplate let-notFound>
+    <div [innerHTML]="notFound"></div>
+    </ng-template>
+    </div>
+</div>
+
+<div class="form-group">
+  <label for="message-text" class="col-form-label">Item Quantity:</label>
+  <input (Change)="checkme()"   [(ngModel)]="quantity"  required type="number" class="form-control" id="Qauntity-num" name="Qauntity">
+<div *ngIf ="!checkme()">the quantity is not good</div>
+</div>
+</form>
+</div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button id="buttonadd" *ngIf="checkme()" (click)="addinvoice()" type="button" class="btn btn-primary"  data-dismiss="modal">Add </button> 
+    </div>
+    </div>
+    </div>
+    </div> 
+    <!-- end model -->
+  </div>
+</div>
+ 
+ 
+<button (click)="ShowAllData()"  class="btn btn-warning"> ShowAll </button>
+<table class="table table-hover table-dark" *ngIf="ShowHide">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Unitprice</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of allinvices |paginate: this.config" >
+      <th scope="row">{{item.id}}</th>
+      <td>{{item.name}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.quantity}}</td>
+      <td>${{item.unitprise}}</td>
+      <td>${{item.total}}</td>
+    </tr>
+ 
+  </tbody>
+</table>
+<pagination-controls (pageChange)="pageChanged($event)" *ngIf="ShowHide"></pagination-controls> 
