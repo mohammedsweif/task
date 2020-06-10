@@ -3,6 +3,7 @@ import { ItemInvoicesService } from 'src/app/_service/item-invoices.service';
 import { Invoice } from 'src/app/_Model/invoice';
 import { Product } from 'src/app/_Model/product';
 import { Allinvoice } from 'src/app/_Model/Allinvoices';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
  
 
 @Component({
@@ -15,13 +16,29 @@ export class ItemInvoicesComponent implements OnInit {
   
   
   
-  constructor(public serv: ItemInvoicesService) { }
+  constructor(private fb:FormBuilder,public serv: ItemInvoicesService) { }
+  InvoiceForm:FormGroup;
+  massageValidator={
+    Product:{
+     required:"this fild must be enter",
+   },
+   quantityy:{
+     required:"this fild must be enter value more than zero" }
+    }
+
+
+/********************************************************************** */
   ngOnInit(): void {
     this.getallproducts();
     this.config = {
       itemsPerPage: 3,
       currentPage: 1
     }
+    this.InvoiceForm=this.fb.group({
+      Product:["",[Validators.required ]],
+      quantityy:["",[Validators.required ]],
+      
+      });
   }
  
 

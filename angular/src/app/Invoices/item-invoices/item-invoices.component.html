@@ -18,9 +18,7 @@
 </button>
 </div>
 <div class="modal-body">
-
-<form>
-
+<form [formGroup]="InvoiceForm" >
 <div class="form-group">
   <label for="message-text" class="col-form-label"> Enter Product :</label>
   <div class="ng-autocomplete changeWidth">
@@ -46,8 +44,13 @@
 
 <div class="form-group">
   <label for="message-text" class="col-form-label">Item Quantity:</label>
-  <input (Change)="checkme()"   [(ngModel)]="quantity"  required type="number" class="form-control" id="Qauntity-num" name="Qauntity">
-<div *ngIf ="!checkme()">the quantity is not good</div>
+  <input (Change)="checkme()"  formControlName="quantityy"  [(ngModel)]="quantity"  required type="number" class="form-control" id="Qauntity-num" name="Qauntity">
+  <div *ngIf="!this.InvoiceForm.get('quantityy').valid && this.InvoiceForm.get('quantityy').touched">
+    <small *ngIf="this.InvoiceForm.get('quantityy').errors.required == true "  class="form-text  text-danger   mb-4">
+      {{this.massageValidator.quantityy.required}}
+    </small>
+  </div>
+  <div *ngIf ="!checkme()">the quantity is not good</div>
 </div>
 </form>
 </div>
